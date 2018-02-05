@@ -20,11 +20,19 @@ for rank in soup.select("em['class=emph_grade']"):
     rate_list.append(rate)
 
 info_list = []
-for rank in soup.select("dl['class=list_state']"):
+rank = soup.select("dd")
+for rank in soup.select("dd"):
     info_list.append(rank.text.strip())
+
+
+# for rank in soup.select("dl['class=list_state']"):
+#     info = rank.text.strip()
+#     print(info)
+#     info_list.append(rank.text.strip())
 
 for i in range(0, len(movie_list)):
     print(movie_list[i])
     print('평점 : ' + str(rate_list[i]) + ' / 10')
-    print(info_list[i] + '\n')
-
+    print(info_list[2 * i])
+    print(info_list[2 * i + 1])
+    print

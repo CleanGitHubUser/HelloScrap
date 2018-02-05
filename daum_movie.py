@@ -31,6 +31,8 @@ for rank in soup.select("dd"):
 #     info_list.append(rank.text.strip())
 
 for i in range(0, len(movie_list)):
+    rank = i + 1
+    print( 'top' + str(rank) )
     print(movie_list[i])
     print('평점 : ' + str(rate_list[i]) + ' / 10')
     print(info_list[2 * i])

@@ -30,26 +30,26 @@ soup = BeautifulSoup(plain_text, 'lxml')
 
 # 기사 제목 추출
 cnt = 1
-title_list = []
+new_title = []
 for title in soup.select("a['class=link_txt']"):
     if cnt > 15: break
     # print(title.text)
     # print(title.text.strip())
-    title_list.append(title)
+    new_title.append(title)
     cnt += 1
 
 # 기사 간단 소개 추출
 cnt = 1
-summary_list = []
+new_desc = []
 for summary in soup.select("span['class=link_txt']"):
     if cnt > 15: break
     # print(title.text)
     # print(title.text.strip())
-    summary_list.append(summary)
+    new_desc.append(summary)
     cnt += 1
 
 article_list = []
-for i in range(0, len(title_list)):
+for i in range(0, len(new_title)):
     link = soup.select("a['class=link_txt']")
     sc = requests.get(link[i].get("href"))
     pt = sc.text
@@ -57,18 +57,8 @@ for i in range(0, len(title_list)):
     article = sp.select("div['id=harmonyContainer']")
     article_list.append(article[0])
 
-# cnt = 1
-# summary_list = []
-# for summary in soup.select("a['href=link_txt']"):
-#     if cnt > 15: break
-#     # print(title.text)
-#     # print(title.text.strip())
-#     summary_list.append(summary)
-#     cnt += 1
-
-for i in range(0, len(title_list)):
-    print(title_list[i].text.strip() + '\n')
-    # print(summary_list[i].text.strip())
+for i in range(0, len(new_title)):
+    print(new_title[i].text.strip() + '\n')
+    # print(new_desc[i].text.strip())
     print(article_list[i].text.strip())
     print('\n')
-

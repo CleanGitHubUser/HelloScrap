@@ -3,9 +3,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-# URL = []
-# URL.append("")
-
 URL = 'http://ticket2.movie.daum.net/Movie/MovieRankList.aspx'
 source_code = requests.get(URL)
 plain_text = source_code.text

@@ -24,7 +24,7 @@ userid.send_keys('newjeewoong')
 # html요소 중 id가 pw인 요소를 찾음
 userpw = driver.find_element_by_id('pw')
 # @id=pw 인 요소에 비밀번호를 입력
-userpw.send_keys('5j0j0w4')
+userpw.send_keys('')
 
 # 로그인 버튼을 찾아 클릭
 loginbtn = driver.find_element_by_xpath(
